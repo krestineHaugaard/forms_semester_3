@@ -1,0 +1,27 @@
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 3rem 2fr 3rem;
+}
+
+form {
+  grid-column: 2 / 3;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+form > label ~ label,
+fieldset,
+button {
+  margin-top: 1.5rem;
+}
+
+fieldset > input + label {
+  margin-left: 1rem;
+}
+
+button {
+  padding-block: 0.5rem;
+}
