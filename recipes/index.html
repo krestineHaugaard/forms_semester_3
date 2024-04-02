@@ -9,22 +9,77 @@
   <body>
     <main>
       <form>
-        <label for="name"></label>
-        <input type="text" name="name" id="form_name" />
-        <label for="description"></label>
-        <input type="text" name="description" id="form_description" />
-        <label for="ingrediens"></label>
-        <input type="text" name="ingrediens" id="form_ingrediens" />
-        <label for="serves"></label>
-        <input type="number" name="serves" id="form_serves" />
-        <label for="allergens"></label>
-        <input type="text" name="allergens" id="form_allergens" />
-        <label for="diet"></label>
-        <input type="text" name="diet" id="form_diet" />
-        <label for="studentfriendly"></label>
-        <input type="radio" name="studentfriendly" id="form_studentfriendly" />
-        <label for="origin"></label>
-        <input type="text" name="origin" id="form_origin" />
+        <label for="name">Opskrift navn </label>
+        <input type="text" name="name" id="name" />
+
+        <label for="description">Beskrivelse</label>
+        <textarea name="description" id="description" rows="3"></textarea>
+
+        <label for="ingrediens">Ingredienser</label>
+        <textarea name="ingrediens" id="ingrediens" rows="3"></textarea>
+
+        <label for="serves">Antal serveringer</label>
+        <input type="number" name="serves" id="serves" />
+
+        <fieldset>
+          <legend>Er denne ret...</legend>
+          <label for="dairy-free">Laktose fri</label>
+          <input
+            type="checkbox"
+            name="allergens"
+            id="dairy-free"
+            value="no-dairy"
+          />
+          <label for="gluten-free">Gluten fri</label>
+          <input
+            type="checkbox"
+            name="allergens"
+            id="gluten-free"
+            value="no-gluten"
+          />
+          <label for="nut-free">Nødde fri</label>
+          <input
+            type="checkbox"
+            name="allergens"
+            id="nut-free"
+            value="no-nuts"
+          />
+        </fieldset>
+
+        <fieldset>
+          <legend>Er denne ret...</legend>
+          <label for="vegan">Vegansk </label>
+          <input type="radio" name="diet" id="vegan" value="vegan" />
+          <label for="vegetarian">Vegetarisk </label>
+          <input type="radio" name="diet" id="vegetarian" value="vegetarian" />
+          <label for="omnivore">Indeholder kød </label>
+          <input type="radio" name="diet" id="omnivore" value="omnivore" />
+        </fieldset>
+
+        <fieldset>
+          <legend>Er denne ret SU venlig?</legend>
+          <label for="studentfriendly_yes">Ja</label>
+          <input
+            type="radio"
+            name="studentfriendly"
+            id="studentfriendly_yes"
+            value="yes"
+          />
+          <label for="studentfriendly_no">Nej</label>
+          <input
+            type="radio"
+            name="studentfriendly"
+            id="studentfriendly_no"
+            value="no"
+          />
+        </fieldset>
+
+        <label for="origin">Vælg et land </label>
+        <select name="origin" id="origin">
+          <option value="">--Vælg land--</option>
+        </select>
+
+        <button name="submit" type="submit">Tilføj opskrift</button>
       </form>
     </main>
   </body>
