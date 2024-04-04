@@ -16,13 +16,18 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 3rem 2fr 3rem;
+  grid-template-columns: 1rem 1fr 1rem 2fr 1rem;
+  margin-block: 1rem;
+}
+
+.recipes {
+  grid-column: 4 / 5;
+  display: grid;
+  grid-auto-columns: 65ch;
 }
 
 form {
   grid-column: 2 / 3;
-  grid-row: 2;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
