@@ -16,14 +16,23 @@ body {
 
 main {
   display: grid;
-  grid-template-columns: 1rem 1fr 1rem 2fr 1rem;
+  grid-template-columns: 1rem 1fr 5rem 2fr 1rem;
   margin-block: 1rem;
+}
+
+h2 {
+  font-size: x-large;
+}
+
+h3 {
+  font-size: larger;
 }
 
 .recipes {
   grid-column: 4 / 5;
-  display: grid;
-  grid-auto-columns: 65ch;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 form {
@@ -88,14 +97,48 @@ select {
   &:focus {
     outline: dashed 2px rgb(70, 172, 255);
   }
-
-  &:valid::after {
-    content: "✓";
-    color: green;
-  }
 }
 
-input:is([type="radio"], [type="checkbox"]) {
-  &:checked {
-  }
+.recipe_card {
+  box-shadow: 4px 3px 10px rgb(173, 173, 173);
+  border-radius: 1.5rem;
+  padding: 1rem;
+  width: 300px;
+  height: fit-content;
+}
+
+.top_of_card {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.card_btns {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.card_btns > button {
+  margin: 0px;
+}
+
+.origin_and_serves {
+  display: flex;
+  justify-content: space-between;
+}
+
+.allergen_list_and_diet {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.recipe_tag {
+  background-color: cornflowerblue;
+  border-radius: 1rem;
+  padding: 0.3rem 0.8rem;
+  color: rgb(224, 245, 220);
+  font-family: 300;
+  font-size: small;
+  letter-spacing: 1.5px;
 }

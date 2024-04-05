@@ -69,7 +69,7 @@ export async function deleteRecipe(id) {
 
 // // PATCH
 
-export async function patchRecipe(id) {
+export async function patchRecipe(id, nextState) {
   let headersList = {
     apikey: myApiKey,
     Prefer: "return=representation",
@@ -77,7 +77,7 @@ export async function patchRecipe(id) {
   };
 
   let bodyContent = JSON.stringify({
-    serves: 3,
+    isLiked: nextState,
   });
 
   let response = await fetch(

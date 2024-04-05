@@ -8,18 +8,24 @@
   </head>
   <body>
     <main>
+      <!-- Jeg har ikke fået lavet særlig meget validering i min form
+           jeg synes det var meget bøvlet at arbejde med, men jeg er klar over hvor vigtigt det er
+           i forhold til UX UI og i forhold til at få den rigtige data ind i min database, i kan sikket hygge jer meget
+           med at lave nogle underlige opskrifter grundet dette xD -->
       <form>
-        <label for="name">Opskrift navn </label>
-        <input type="text" name="name" id="name" />
+        <label for="name">Opskrift navn* </label>
+        <input type="text" name="name" id="name" required/>
 
-        <label for="description">Beskrivelse</label>
-        <textarea name="description" id="description" rows="3"></textarea>
+        <label for="ingrediens">Ingredienser* 
+          <span>En ingrediens + mål pr. linje</span>
+        </label>
+        <textarea name="ingrediens" id="ingrediens"></textarea required>
 
-        <label for="ingrediens">Ingredienser</label>
-        <textarea name="ingrediens" id="ingrediens" rows="3"></textarea>
+        <label for="description">Fremgangsmåde*</label>
+        <textarea name="description" id="description" rows="3"></textarea required>
 
-        <label for="serves">Antal serveringer</label>
-        <input type="number" name="serves" id="serves" />
+        <label for="serves">Antal serveringer*</label>
+        <input type="number" name="serves" id="serves" required/>
 
         <fieldset>
           <legend>Er denne ret...</legend>
@@ -28,32 +34,32 @@
             type="checkbox"
             name="allergens"
             id="dairy-free"
-            value="no-dairy"
+            value="Laktose fri"
           />
           <label for="gluten-free">Gluten fri</label>
           <input
             type="checkbox"
             name="allergens"
             id="gluten-free"
-            value="no-gluten"
+            value="Gluten fri"
           />
           <label for="nut-free">Nødde fri</label>
           <input
             type="checkbox"
             name="allergens"
             id="nut-free"
-            value="no-nuts"
+            value="Nødde fri"
           />
         </fieldset>
 
         <fieldset>
           <legend>Er denne ret...</legend>
           <label for="vegan">Vegansk </label>
-          <input type="radio" name="diet" id="vegan" value="vegan" />
+          <input type="radio" name="diet" id="vegan" value="Vegansk" />
           <label for="vegetarian">Vegetarisk </label>
-          <input type="radio" name="diet" id="vegetarian" value="vegetarian" />
+          <input type="radio" name="diet" id="vegetarian" value="Vegetar" />
           <label for="omnivore">Indeholder kød </label>
-          <input type="radio" name="diet" id="omnivore" value="omnivore" />
+          <input type="radio" name="diet" id="omnivore" value="Med kød" checked />
         </fieldset>
 
         <fieldset>
@@ -71,13 +77,24 @@
             name="studentfriendly"
             id="studentfriendly_no"
             value="no"
+            checked
           />
         </fieldset>
 
-        <label for="origin">Vælg et land </label>
+        <label for="origin">Vælg oprindelse </label>
         <select name="origin" id="origin">
           <option value="">--Vælg land--</option>
+          <option value="Danmark">Danmark</option>
+          <option value="Sverige">Sverige</option>
+          <option value="Tyskland">Tyskland</option>
+          <option value="USA">USA</option>
+          <option value="England">England</option>
+          <option value="Indien">Indien</option>
+          <option value="Tyrkiet">Tyrkiet</option>
+          <option value="Kina">Kina</option>
+          <option value="New zealand">New zealand</option>
         </select>
+        <!-- jeg ved vi snakkede om færdige lister man kunne hente igennem npm, men tiden røg fra mig -->
 
         <button name="submit" type="submit">Tilføj opskrift</button>
       </form>
@@ -85,11 +102,22 @@
     </main>
     <template>
       <article id="" class="recipe_card">
-        <h2 data-type="name"></h2>
-        <p data-type="description"></p>
+        <div class="top_of_card">
+          <h2 data-type="name"></h2>
+          <div class="card_btns">
+            <button title="Synes godt om" data-id="" data-action="update"></button>
+            <button title="Slet" data-id="" data-action="delete">X</button>
+          </div>
+        </div>
+        <div class="origin_and_serves">
+          <p data-type="origin"></p>
+          <p data-type="serves"></p>
+        </div>
+        <section class="allergen_list_and_diet"></section>
+        <h3>Ingredienser</h3>
         <ul class="ingredients_list"></ul>
-        <p data-type="serves"></p>
-        <ul class="allergenes_list"></ul>
+        <h3>Fremgangsmåden</h3>
+        <p data-type="description"></p>
       </article>
     </template>
     <script type="module" src="index.js"></script>
